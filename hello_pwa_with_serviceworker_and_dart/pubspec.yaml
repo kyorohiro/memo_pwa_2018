@@ -8,7 +8,7 @@ environment:
   sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  pwa: ^0.1.10
+  service_worker: ^0.2.3
 
 dev_dependencies:
   build_runner: ^0.10.0
