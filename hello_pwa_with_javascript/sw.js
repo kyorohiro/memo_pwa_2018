@@ -9,6 +9,7 @@ self.addEventListener('install', function (event) {
   event.waitUntil(caches.open(cacheName).then(installFunc));
 });
 
+
 self.addEventListener('fetch', function (event) {
   const responceFunc = function (response) {
     console.log("# fetch : " + event.request.url);
@@ -23,3 +24,18 @@ self.addEventListener('fetch', function (event) {
   event.respondWith(caches.match(event.request).then(responceFunc));
 });
 
+
+self.addEventListener('activate', function (event) {
+  console.log("# activate (1)");
+  caches.keys().then(function (cacheNames) {
+    return Promise.all(
+      cacheNames.map(function (_cacheName) {
+        console.log("n:" + _cacheName);
+        if (_cacheName != cacheName) {
+          return caches.delete(cacheName);
+        }
+      }
+      )
+    );
+  });
+});
