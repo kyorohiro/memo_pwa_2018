@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>hello_postMessage</title>
+</head>
+
+<body>
+    <button id="postButton">Post</button>
+    <script type="text/javascript">
+        console.log("Start");
+        if ('serviceWorker' in navigator) {
+            console.log("Check: exist serviceworker");
+            //https://developer.mozilla.org/en/docs/Web/API/ServiceWorkerContainer/register
+            navigator.serviceWorker.register('sw.js?v=0.0.1').then(function (registration) {
+                console.log('Passed: serviceworker registration', registration.scope);
+                return navigator.serviceWorker.ready;
+            }).catch(function (err) {
+                console.log('Failed: serviceworker registration ', err);
+            });
+            console.log("Start 1");
+
+            navigator.serviceWorker.addEventListener('message', function (e) {
+                console.log('Worker said: ', e.data);
+            }, false);
+        }
+        document.getElementById("postButton").onclick = function () {
+            console.log("click button");
+            navigator.serviceWorker.controller.postMessage('Hello World');
+        };
+    </script>
+</body>
+
+</html>
