@@ -28,15 +28,15 @@ self.addEventListener('fetch', function (event) {
 self.addEventListener('activate', function (event) {
   console.log("# activate (1)");
   var k = caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames.map(function (_cacheName) {
-          console.log("n:" + _cacheName);
-          if (_cacheName != cacheName) {
-            return caches.delete(cacheName);
-          }
+    return Promise.all(
+      cacheNames.map(function (_cacheName) {
+        console.log("n:" + _cacheName);
+        if (_cacheName != cacheName) {
+          return caches.delete(cacheName);
         }
-        )
-      );
-    });
-    event.waitUntil(k)
+      }
+      )
+    );
+  });
+  event.waitUntil(k)
 });
