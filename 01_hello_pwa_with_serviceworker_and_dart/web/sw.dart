@@ -26,4 +26,14 @@ void main() {
     });
     e.respondWith(responseTask);
   });
+
+  sw.onActivate.listen((sw.ExtendableEvent e){
+    print("##>> activate");
+    Future activateTask = new Future(() async {
+      List<String> keys = await sw.caches.keys();
+      Iterable<Future> futures = keys.map((String k){return sw.caches.delete(k);});
+      return Future.wait(futures);
+    });
+    e.waitUntil(activateTask);
+  });
 }
