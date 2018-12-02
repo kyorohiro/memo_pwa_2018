@@ -1,0 +1,22 @@
+<html>
+
+<head>
+	<title>Hello</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		console.log("Start");
+		if ('serviceWorker' in navigator) {
+			console.log("Check: exist serviceworker");
+			//https://developer.mozilla.org/en/docs/Web/API/ServiceWorkerContainer/register
+			navigator.serviceWorker.register('sw.js?v=0.0.1').then(function (registration) {
+				console.log('Passed: serviceworker registration', registration.scope);
+			}).catch(function (err) {
+				console.log('Failed: serviceworker registration ', err);
+			});
+		}
+	</script>
+</body>
+
+</html>
