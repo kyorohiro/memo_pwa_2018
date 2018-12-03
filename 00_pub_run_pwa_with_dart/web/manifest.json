@@ -3,13 +3,13 @@
   "short_name": "demo",
   "description": "A web app that uses AngularDart Components",
   "lang": "en-US",
-  "start_url": "/",
+  "start_url": "index.html?launcher=true",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "__mock_values__icons": [
+  "icons": [
     {
       "src": "launcher-icon-1x.png",
       "sizes": "48x48",
