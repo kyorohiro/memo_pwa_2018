@@ -14,6 +14,8 @@ check here
 - https://github.com/kyorohiro/service_worker
 
  
-## 00_hello_xx
+## 00_pub_run_pwa
+`pub run pwa` 's sample
 
+## 01_hello_xx
 sample project to create offline app.
