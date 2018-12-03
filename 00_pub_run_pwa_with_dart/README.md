@@ -1,8 +1,6 @@
-# 00_zero_pwa_with_dart
 
-add dependencies 
 
-### crate target web app
+### Crate target web app
 ```:commandline
 > stagehand web-angular
 > pub get
@@ -10,7 +8,7 @@ add dependencies
 ```
 
 
-### generate offline function 
+### Generate offline function 
 
 ```:pubspec.yaml
 dependencies:
@@ -21,6 +19,8 @@ dependencies:
       url: https://github.com/kyorohiro/pwa.git
 
 ```
+
+and 'new Client' in main.dart
 
 ```:main.dart
 import 'package:angular/angular.dart';
@@ -33,8 +33,11 @@ void main() {
 }
 ```
 
-### confirm
+### Confirm
 
-``
+
+```
+
 > webdev serve
-``
+
+```
