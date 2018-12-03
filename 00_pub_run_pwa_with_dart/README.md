@@ -41,3 +41,25 @@ void main() {
 > webdev serve
 
 ```
+
+
+
+
+## install as ICON
+https://developers.google.com/web/fundamentals/web-app-manifest/
+
+need folling param in manifest.json
+
+- short_name
+- name
+- 192x192 の png アイコン（アイコンの宣言には MIME タイプ image/png の指定が必要）
+- start_url
+
+
+and must to write meta tag for manifest
+
+```
+
+<link rel="manifest" href="manifest.json" />
+
+```
