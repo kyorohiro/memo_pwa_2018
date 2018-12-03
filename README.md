@@ -2,7 +2,16 @@
 
 updating from https://github.com/kyorohiro/memo_pwa_2017 now.
 
+# Dart
 
-## Hello
-Save
+I folked and extended pwa package for standard notification.
+check here
 
+https://github.com/kyorohiro/memo_pwa_2018
+https://github.com/kyorohiro/pwa
+https://github.com/kyorohiro/service_worker
+
+ 
+## 00_hello_xx
+
+sample project to create offline app.
