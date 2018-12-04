@@ -9,7 +9,8 @@ environment:
 
 dependencies:
   service_worker:
-    path:  ../../service_worker
+    git: 
+      url: https://github.com/kyorohiro/service_worker.git
 
 dev_dependencies:
   build_runner: ^0.10.0
