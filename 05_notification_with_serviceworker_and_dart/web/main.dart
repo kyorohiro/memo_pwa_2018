@@ -18,12 +18,8 @@ void main() async {
 
 
 sw.ServiceWorkerRegistration _reg;
-Future<sw.ServiceWorkerRegistration> get registration async {
-  if(_reg == null) {
-    _reg = await sw.register("./sw.dart.js");
-  }
-  return _reg;
-}
+Future<sw.ServiceWorkerRegistration> get registration async =>
+    _reg == null ? _reg = await sw.register("./sw.dart.js"):_reg;
 
 sw.PushSubscriptionOptions get pushSubscriptionOption => new sw.PushSubscriptionOptions(
     userVisibleOnly: true,
@@ -32,17 +28,20 @@ sw.PushSubscriptionOptions get pushSubscriptionOption => new sw.PushSubscription
 
 
 Future getSubscription({bool subscribeIfNeeded: false}) async {
-  sw.ServiceWorkerRegistration registration = await sw.register("./sw.dart.js");
+  String status = await (await registration).pushManager.permissionState(pushSubscriptionOption);
+  sw.PushSubscription subscription =  await (await registration).pushManager.getSubscription();
 
-  String status = await registration.pushManager.permissionState(pushSubscriptionOption);
-  sw.PushSubscription subscription = await registration.pushManager.getSubscription();
-
+  //
+  // if user is unsubscribed, try to subscribe
   if (subscribeIfNeeded && subscription == null && (status == "prompt" || status == "granted")) {
     try {
-      await registration.pushManager.subscribe(pushSubscriptionOption);
+       subscription  = await (await registration).pushManager.subscribe(pushSubscriptionOption);
     } catch (e) {print(e);}
     return getSubscription(subscribeIfNeeded: false);
   }
+
+  //
+  // return subscription to send to
   if(subscription == null) {
     return "";
   } else {
