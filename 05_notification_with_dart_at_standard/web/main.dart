@@ -3,11 +3,11 @@ import 'dart:html' as html;
 import 'dart:convert' as conv;
 void main() async {
   pwa.Client client =  new pwa.Client(scriptUrl: './pwa.dart.js');
-  pwa.PushPermission p = await client.getPushPermission(applicationServerKey: "BH3KQ0K5n5aNtH_z0PBbW1hjHHbe3jzcKObuWuFVs60pnuCNXhZQBUFtyyY0pp_haEdDYXCRPcBISpoFVzMcGVs");
+  pwa.PushPermission p = await client.getPushPermission(applicationServerKey: "BEM6u6WTQr3MKqaHE4GoexJx1gtV2cbeAadXKeLtruEiVs7UB5JxYPOsfQ09OQTcMsaQbf_LAN4dY4DqctworyU");
 
   html.querySelector("#subscribe").onClick.listen((html.MouseEvent e) async {
     print("subscribe");                                                               
-    p = await client.getPushPermission(subscribeIfNeeded: true,applicationServerKey: "BH3KQ0K5n5aNtH_z0PBbW1hjHHbe3jzcKObuWuFVs60pnuCNXhZQBUFtyyY0pp_haEdDYXCRPcBISpoFVzMcGVs");
+    p = await client.getPushPermission(subscribeIfNeeded: true,applicationServerKey: "BEM6u6WTQr3MKqaHE4GoexJx1gtV2cbeAadXKeLtruEiVs7UB5JxYPOsfQ09OQTcMsaQbf_LAN4dY4DqctworyU");
   });
 
   html.querySelector("#unsubscribe").onClick.listen((html.MouseEvent e)async{
